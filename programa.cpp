@@ -2,7 +2,7 @@
 
 using namespace std;
 
-struct stud{
+struct stud{                //struktura studento duomenims saugoti
     string vardas;
     string pavarde;
     vector<int> nd;
@@ -24,7 +24,6 @@ int main()
     int u;
     while(true)
     {
-        
         cout << "Iveskite studento varda ir pavarde: ";
         cin >> v >> p;
         studentas[i].vardas = v;
@@ -59,9 +58,17 @@ int main()
             cout << "Veskite studento pazymius, baige vesti, iveskite 0: ";
             while(true)
             {
+
                 if(a!=0)
                 {
                     cin >> a;
+                    while(!cin)
+                    {
+                        cin.clear(); // reset failbit
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //praleidziame neteisinga ivesti
+                        cout << "Prasome ivesti skaiciu: ";
+                        cin >> a;
+                    }
                     studentas[i].nd.push_back(a);
                     pazsum += a;
                     j++;
@@ -91,12 +98,15 @@ int main()
         studentas[i].nd.erase(studentas[i].nd.begin());
         
         
-        if(j%2==0)
+        if(j==1)
+        mediana=studentas[i].nd[j];
+        else if(j%2==0) //medianos skaiciavimas jei nariu skaicius yra lyginis
         {
             mediana=(studentas[i].nd[j/2]+studentas[i].nd[j/2 - 1])/2.0;
         }
-        else
+        else        //medianos skaiciavimas jei nariu skaicius nelyginis
             mediana=(studentas[i].nd[j/2]);
+
         studentas[i].med = mediana;
 
 
