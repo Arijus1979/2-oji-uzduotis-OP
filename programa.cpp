@@ -13,6 +13,7 @@ struct stud{
 
 int main()
 {
+    srand(time(0));
     vector<stud> studentas;
     studentas.push_back(stud());
     string v, p;
@@ -20,6 +21,7 @@ int main()
     float pazsum=0; // pazymiu suma
     int i=0;
     int j=0;
+    int u;
     while(true)
     {
         
@@ -27,29 +29,57 @@ int main()
         cin >> v >> p;
         studentas[i].vardas = v;
         studentas[i].pavarde = p;
-        cout << "Veskite studento pazymius, baige vesti, iveskite 0: ";
+        char A;
+        cout << "Ar norite atsitiktinai sugeneruoti mokinio namu darbu ir egzamino pazymius? (Y/N) ";
         while(true)
         {
-            if(a!=0)
+            cin >> A;
+            if (A != 'y' && A != 'n' && A != 'Y' && A != 'N')
+                cout << "Y/N ";
+            else break;
+        }
+        if(A == 'Y' || A == 'y')
+        {
+            cout << "Iveskite norimu sugeneruoti pazymiu skaiciu: ";
+            cin >> u;
+            for(int p=0; p<u; p++)
             {
-                cin >> a;
+                a = rand()%10+1;
                 studentas[i].nd.push_back(a);
-                pazsum += a;
+                pazsum += a;         
                 j++;
             }
-            else
-                break;
+            j++;
+            a = rand()%10+1;
+            studentas[i].egz = a;
+            a=1;
         }
+        else
+        {
+            cout << "Veskite studento pazymius, baige vesti, iveskite 0: ";
+            while(true)
+            {
+                if(a!=0)
+                {
+                    cin >> a;
+                    studentas[i].nd.push_back(a);
+                    pazsum += a;
+                    j++;
+                }
+                else
+                    break;
+            }
+            cout << "Iveskite egzamino rezultata: ";
+            cin >> a;
+            studentas[i].egz = a;
+            a=1;
+        }
+
         j--;
         float mediana;
         sort(studentas[i].nd.begin(), studentas[i].nd.end());
         studentas[i].nd.erase(studentas[i].nd.begin());
-        for(int q=0; q<j; q++)
-        {
-            cout << studentas[i].nd[q] << " ";
-        }
-        cout << endl;
-        cout << endl;
+        
         
         if(j%2==0)
         {
@@ -58,18 +88,14 @@ int main()
         else
             mediana=(studentas[i].nd[j/2]);
         studentas[i].med = mediana;
-        cout << "Iveskite egzamino rezultata: ";
-        cin >> a;
-        studentas[i].egz = a;
-        a=1;
+
+
+       
         
         studentas[i].gal = (0.4*(pazsum/(float)j)) + (0.6*studentas[i].egz);
         studentas[i].med = (0.4*(pazsum/(float)j)) + (0.6*studentas[i].med);
 
         cout << "Ar norite ivesti kita mokini? (Y/N) ";
-        char A;
-        
-
         while(true)
         {
             cin >> A;
@@ -87,10 +113,6 @@ int main()
         studentas.push_back(stud());
     }
 
-    for(int k=0; k <= i; k++)
-    {
-        cout << studentas[k].vardas << " " << studentas[k].pavarde << " " << studentas[k].gal << endl;
-    }
 
     cout << "|"<< left << setw(20) << "Vardas" << "|" << left << setw(20) << "Pavarde" << "|" << left << setw(20) << "Galutinis (Vid.)"<< "|" << left << setw(20) << "Galutinis (Med.)" << endl;
     for(int k=0; k <= i; k++)
