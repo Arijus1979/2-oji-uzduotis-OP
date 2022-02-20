@@ -8,6 +8,7 @@ struct stud{
     vector<int> nd;
     float egz;
     float gal;
+    float med;
 };
 
 int main()
@@ -18,7 +19,7 @@ int main()
     int a=1;
     float pazsum=0; // pazymiu suma
     int i=0;
-    float j=0;
+    int j=0;
     while(true)
     {
         
@@ -39,12 +40,31 @@ int main()
             else
                 break;
         }
+        j--;
+        float mediana;
+        sort(studentas[i].nd.begin(), studentas[i].nd.end());
+        studentas[i].nd.erase(studentas[i].nd.begin());
+        for(int q=0; q<j; q++)
+        {
+            cout << studentas[i].nd[q] << " ";
+        }
+        cout << endl;
+        cout << endl;
+        
+        if(j%2==0)
+        {
+            mediana=(studentas[i].nd[j/2]+studentas[i].nd[j/2 - 1])/2.0;
+        }
+        else
+            mediana=(studentas[i].nd[j/2]);
+        studentas[i].med = mediana;
         cout << "Iveskite egzamino rezultata: ";
         cin >> a;
         studentas[i].egz = a;
         a=1;
-        j--;
-        studentas[i].gal = (0.4*(pazsum/j)) + (0.6*studentas[i].egz);
+        
+        studentas[i].gal = (0.4*(pazsum/(float)j)) + (0.6*studentas[i].egz);
+        studentas[i].med = (0.4*(pazsum/(float)j)) + (0.6*studentas[i].med);
 
         cout << "Ar norite ivesti kita mokini? (Y/N) ";
         char A;
@@ -75,7 +95,7 @@ int main()
     cout << "|"<< left << setw(20) << "Vardas" << "|" << left << setw(20) << "Pavarde" << "|" << left << setw(20) << "Galutinis (Vid.)"<< "|" << left << setw(20) << "Galutinis (Med.)" << endl;
     for(int k=0; k <= i; k++)
     {
-        cout << "|"<< left << setw(20) << studentas[k].vardas << "|" << left << setw(20) << studentas[k].pavarde << "|" << left << setw(20) << fixed << setprecision(2) << studentas[k].gal << "|" << endl;
+        cout << "|"<< left << setw(20) << studentas[k].vardas << "|" << left << setw(20) << studentas[k].pavarde << "|" << left << setw(20) << fixed << setprecision(2) << studentas[k].gal << "|" << left << setw(20) << studentas[k].med << endl;;
     }
 
 }
