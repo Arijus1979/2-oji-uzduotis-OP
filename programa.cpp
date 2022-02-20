@@ -69,6 +69,11 @@ int main()
                         cout << "Prasome ivesti skaiciu: ";
                         cin >> a;
                     }
+                    while(a<0 || a>10)
+                    {
+                        cout << "Prasome ivesti pazymi intervale [1, 10]: ";
+                        cin >> a;
+                    }
                     studentas[i].nd.push_back(a);
                     pazsum += a;
                     j++;
@@ -88,6 +93,11 @@ int main()
             }
             cout << "Iveskite egzamino rezultata: ";
             cin >> a;
+            while(a<0 || a>10)
+            {
+                cout << "Prasome ivesti pazymi intervale [0, 10]: ";
+                cin >> a;
+            }
             studentas[i].egz = a;
             a=1;
         }
