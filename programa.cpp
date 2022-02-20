@@ -67,7 +67,17 @@ int main()
                     j++;
                 }
                 else
-                    break;
+                {
+                    if(pazsum==0)
+                    {
+                        cout << "prasome ivesti bent viena pazymi: ";
+                        cin >> a;
+                        pazsum += a;
+                    }
+                    else
+                        break;
+                }
+                    
             }
             cout << "Iveskite egzamino rezultata: ";
             cin >> a;
