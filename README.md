@@ -11,7 +11,7 @@ Versija [v0.1] naudoja vector tipo konteinerius, kurie paspartina programos veik
 - Jei pasirinksite vesti duomenis patys, įvedę visus pažymius gautus už namų darbus, turėsite įvesti [0], kad programa žinotų, jog pažymių daugiau nebus. Tuomet įveskite egzamino pažymį.
 - Suvedus visus duomenis apie vieną mokinį, turėsite pasirinkti ar norite įvesti daugiau mokinių. Savo pasirinkimą patvirtinate įrašydami [Y/N] (Taip/Ne).
 
-(Pažymių vidurkis sudaromis vadovaujantis šia formule: galutinis = 0.4 * vidurkis + 0.6 * egzaminas)<br>
+(Pažymių vidurkis sudaromas vadovaujantis šia formule: galutinis = 0.4 * vidurkis + 0.6 * egzaminas)<br>
 (Pažymių mediana sudaroma vadovaujantis šia formule: mediana = 0.4 * pažymių mediana + 0.6 * egzaminas)<br>
 
 ### Pasirinkus šiuos nustatymus matysite sudarytą lentelę su studentų vardais, pavardėmis ir galutiniais vidurkiais naudojant egzamino balą arba pažymių medianą
