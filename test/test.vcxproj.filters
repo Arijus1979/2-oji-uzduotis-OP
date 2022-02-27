@@ -15,7 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="programa.cpp">
+    <ClCompile Include="masyvai.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vectoriai.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
