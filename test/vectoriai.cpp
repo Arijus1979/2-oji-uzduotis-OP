@@ -2,6 +2,9 @@
 
 
 using namespace std;
+ifstream in("kursiokai.txt");
+
+bool skaitymasisfailo = false;
 
 struct stud {                //struktura studento duomenims saugoti
     string vardas;
@@ -53,13 +56,14 @@ void ivedimas(vector<stud>& studentas, int& i)
     float pazsum = 0; // pazymiu suma
     int j = 0;
     int u;
+    char A;
+
     while (true)
     {
         cout << "Iveskite studento varda ir pavarde: ";
         cin >> v >> p;
         studentas[i].vardas = v;
         studentas[i].pavarde = p;
-        char A;
         cout << "Ar norite atsitiktinai sugeneruoti mokinio namu darbu ir egzamino pazymius? (Y/N) ";
         while (true)
         {
@@ -149,13 +153,97 @@ void ivedimas(vector<stud>& studentas, int& i)
     }
 }
 
+bool rusiavimasvard(stud& a, stud& b)
+{
+    return a.vardas < b.vardas;
+}
+
+bool rusiavimaspavard(stud& a, stud& b)
+{
+    return a.pavarde < b.pavarde;
+}
+
 void isvedimas(int i, vector<stud> studentas)  //duomenu isvedimo funkcija
 {
-    cout << "|" << left << setw(20) << "Vardas" << "|" << left << setw(20) << "Pavarde" << "|" << left << setw(20) << "Galutinis (Vid.)" << "|" << left << setw(20) << "Galutinis (Med.)" << endl;
-    for (int k = 0; k <= i; k++)
+    char A;
+    cout << "Ar rezultatus norite rusiuoti pagal varda ar pavarde? [V/P] ";
+    while (true)
     {
-        cout << "|" << left << setw(20) << studentas[k].vardas << "|" << left << setw(20) << studentas[k].pavarde << "|" << left << setw(20) << fixed << setprecision(2) << studentas[k].gal << "|" << left << setw(20) << studentas[k].med << endl;;
+        cin >> A;
+        if (A != 'v' && A != 'p' && A != 'V' && A != 'P')
+            cout << "V/P ";
+        else break;
     }
+    if (A == 'V' || A == 'v')
+    {
+        sort(studentas.begin(), studentas.end(), rusiavimasvard);
+    }
+    else
+        sort(studentas.begin(), studentas.end(), rusiavimaspavard);
+
+    
+    cout << "|" << left << setw(20) << "Vardas" << "|" << left << setw(20) << "Pavarde" << "|" << left << setw(20) << "Galutinis (Vid.)" << "|" << left << setw(20) << "Galutinis (Med.)" << endl;
+
+    if (skaitymasisfailo == false)
+    {
+        for (int k = 0; k <= i; k++)
+        {
+            cout << "|" << left << setw(20) << studentas[k].vardas << "|" << left << setw(20) << studentas[k].pavarde << "|" << left << setw(20) << fixed << setprecision(2) << studentas[k].gal << "|" << left << setw(20) << studentas[k].med << endl;;
+        }
+    }
+    else
+    {
+        for (int k = 1; k <= i; k++)
+        {
+            cout << "|" << left << setw(20) << studentas[k].vardas << "|" << left << setw(20) << studentas[k].pavarde << "|" << left << setw(20) << fixed << setprecision(2) << studentas[k].gal << "|" << left << setw(20) << studentas[k].med << endl;;
+        }
+    }
+
+    
+}
+
+int ndkiekis()
+{
+
+    string a;
+    int q = 0;
+    while (true)
+    {
+        in >> a;
+        q++;
+        if (a == "Egz.")
+        {
+            break;
+        }
+
+    }
+    return q - 3;
+}
+
+void nuskaitymas(vector<stud>& studentas, int& i)
+{
+    float pazsum = 0; // pazymiu suma
+    int ndpaz;
+    int kieknd = ndkiekis();
+    studentas.push_back(stud());
+    while (!in.eof())
+    {
+        in >> studentas[i].vardas >> studentas[i].pavarde;
+        for (int q = 0; q < kieknd; q++)
+        {
+            in >> ndpaz;
+            studentas[i].nd.push_back(ndpaz);
+            pazsum += ndpaz;
+        }
+        in >> studentas[i].egz;
+
+        skaiciavimai(studentas, kieknd, pazsum, i);
+
+        i++;
+        pazsum = 0;
+        studentas.push_back(stud());
+    }
+    skaitymasisfailo = true;
 }
 
 int main()
@@ -163,8 +251,23 @@ int main()
     srand(time(0));
     vector<stud> studentas;
     int i = 0;
+    char A;
+    cout << "Ar norite failus nuskaityti is failo? [Y/N] ";
+    while (true)
+    {
+        cin >> A;
+        if (A != 'y' && A != 'n' && A != 'Y' && A != 'N')
+            cout << "Y/N ";
+        else break;
+    }
+    if (A == 'Y' || A == 'y')
+    {
+        nuskaitymas(studentas, i);
+    }
 
-    ivedimas(studentas, i);
+    else
+        ivedimas(studentas, i);
+
 
     isvedimas(i, studentas);
 
