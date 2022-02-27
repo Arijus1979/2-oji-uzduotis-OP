@@ -1,19 +1,19 @@
 ﻿  test.cpp
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\test\test\test.cpp(33,36): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\test.cpp(33,36): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
           with
           [
               _Ty=int
           ]
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\test\test\test.cpp(36,73): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\test\test\test.cpp(39,41): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\test.cpp(36,73): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\test.cpp(39,41): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
           with
           [
               _Ty=int
           ]
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\test\test\test.cpp(44,52): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\test\test\test.cpp(45,52): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\test\test\test.cpp(84,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\test\test\test.cpp(125,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\test\test\test.cpp(131,36): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\test\test\test.cpp(163,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  test.vcxproj -> C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\test\x64\Debug\test.exe
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\test.cpp(44,52): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\test.cpp(45,52): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\test.cpp(84,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\test.cpp(125,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\test.cpp(131,36): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\test.cpp(163,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  test.vcxproj -> C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\x64\Debug\test.exe
