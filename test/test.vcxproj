@@ -148,7 +148,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="kursiokai.txt" />
+    <Text Include="kursiokdai.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Funkcijos.h" />

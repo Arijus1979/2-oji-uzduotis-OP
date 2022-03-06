@@ -2,12 +2,17 @@
 
 #include "Strukturos.h"
 
-using namespace std;
-ifstream in("kursiokai.txt");
 
-bool skaitymasisfailo = false; //tikrinimas
-
-
+void ar_egzistuoja(const string& name)
+{
+    ifstream jin(name);
+    if (!jin)
+    {
+        jin.close();
+        throw "Failas neegzistuoja";
+    }
+    jin.close();
+}
 
 void skaicius(int& a) //funkcija neleidzianti ivesti raides ten kur reikia skaiciaus
 {
@@ -104,9 +109,15 @@ void ivedimas(vector<stud>& studentas, int& i)
                 {
                     if (pazsum == 0)
                     {
-                        cout << "prasome ivesti bent viena pazymi: ";
-                        skaicius(a);
-                        pazsum += a;
+                        throw "Prasome ivesti bent viena pazymi: ";
+                        //cout << "prasome ivesti bent viena pazymi: ";
+                        try {
+                            skaicius(a);
+                            pazsum += a;
+                        }
+                        catch (const char* msg) {
+                            cerr << msg << endl;
+                        }
                     }
                     else
                         break;
@@ -201,6 +212,8 @@ void isvedimas(int i, vector<stud> studentas)  //duomenu isvedimo funkcija
 
 int ndkiekis()
 {
+    ifstream in ("kursiokai.txt");
+
 
     string a;
     int q = 0;
@@ -219,9 +232,11 @@ int ndkiekis()
 
 void nuskaitymas(vector<stud>& studentas, int& i)
 {
+    
+    int kieknd = ndkiekis();
     float pazsum = 0; // pazymiu suma
     int ndpaz;
-    int kieknd = ndkiekis();
+    
     studentas.push_back(stud());
     while (!in.eof())
     {
@@ -241,4 +256,7 @@ void nuskaitymas(vector<stud>& studentas, int& i)
         studentas.push_back(stud());
     }
     skaitymasisfailo = true;
+
+    in.close();
+    
 }

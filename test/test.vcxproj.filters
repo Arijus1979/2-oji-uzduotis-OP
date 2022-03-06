@@ -23,7 +23,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="kursiokai.txt">
+    <Text Include="kursiokdai.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

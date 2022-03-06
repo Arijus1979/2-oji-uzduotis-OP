@@ -18,13 +18,25 @@ int main()
     }
     if (A == 'Y' || A == 'y')
     {
-        nuskaitymas(studentas, i);
+        try 
+        {
+            ar_egzistuoja("kursiokai.txt");
+            nuskaitymas(studentas, i);
+            isvedimas(i, studentas);
+        }
+        catch (const char* msg) 
+        {
+            cerr << msg << endl;
+        }
+     
+    }
+    else
+    {
+        ivedimas(studentas, i);
+        isvedimas(i, studentas);
     }
 
-    else
-        ivedimas(studentas, i);
 
-
-    isvedimas(i, studentas);
+    
 
 }

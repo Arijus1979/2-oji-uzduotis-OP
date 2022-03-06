@@ -6,8 +6,6 @@ ifstream in("kursiokai.txt");
 bool skaitymasisfailo = false;
 
 
-
-
 struct stud {                //struktura studento duomenims saugoti
     string vardas;
     string pavarde;
