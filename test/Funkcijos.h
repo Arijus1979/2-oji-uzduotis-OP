@@ -5,7 +5,7 @@
 using namespace std;
 ifstream in("kursiokai.txt");
 
-bool skaitymasisfailo = false;
+bool skaitymasisfailo = false; //tikrinimas
 
 
 

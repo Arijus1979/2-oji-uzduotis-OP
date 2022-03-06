@@ -4,7 +4,7 @@
 
 int main()
 {
-    srand(time(0));
+    srand(time(0)); // test
     vector<stud> studentas;
     int i = 0;
     char A;
