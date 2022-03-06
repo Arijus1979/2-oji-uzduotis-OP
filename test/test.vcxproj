@@ -150,6 +150,10 @@
   <ItemGroup>
     <Text Include="kursiokai.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Funkcijos.h" />
+    <ClInclude Include="Strukturos.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
