@@ -20,5 +20,5 @@ C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\
 C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.h(82,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.h(123,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.h(129,36): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.h(234,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.h(237,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\vectoriai.cpp(7,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data

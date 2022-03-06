@@ -176,25 +176,28 @@ void isvedimas(int i, vector<stud> studentas)  //duomenu isvedimo funkcija
         sort(studentas.begin(), studentas.end(), rusiavimaspavard);
 
 
-    cout << "|" << left << setw(20) << "Vardas" << "|" << left << setw(20) << "Pavarde" << "|" << left << setw(20) << "Galutinis (Vid.)" << "|" << left << setw(20) << "Galutinis (Med.)" << endl;
+    stringstream my_buffer;
+    my_buffer << "|" << left << setw(20) << "Vardas" << "|" << left << setw(20) << "Pavarde" << "|" << left << setw(20) << "Galutinis (Vid.)" << "|" << left << setw(20) << "Galutinis (Med.)" << endl;
 
     if (skaitymasisfailo == false)
     {
         for (int k = 0; k <= i; k++)
         {
-            cout << "|" << left << setw(20) << studentas[k].vardas << "|" << left << setw(20) << studentas[k].pavarde << "|" << left << setw(20) << fixed << setprecision(2) << studentas[k].gal << "|" << left << setw(20) << studentas[k].med << endl;;
+            my_buffer << "|" << left << setw(20) << studentas[k].vardas << "|" << left << setw(20) << studentas[k].pavarde << "|" << left << setw(20) << fixed << setprecision(2) << studentas[k].gal << "|" << left << setw(20) << fixed << setprecision(2) << studentas[k].med << endl;
         }
     }
     else
     {
         for (int k = 1; k <= i; k++)
         {
-            cout << "|" << left << setw(20) << studentas[k].vardas << "|" << left << setw(20) << studentas[k].pavarde << "|" << left << setw(20) << fixed << setprecision(2) << studentas[k].gal << "|" << left << setw(20) << studentas[k].med << endl;;
+            my_buffer << "|" << left << setw(20) << studentas[k].vardas << "|" << left << setw(20) << studentas[k].pavarde << "|" << left << setw(20) << fixed << setprecision(2) << studentas[k].gal << "|" << left << setw(20) << fixed << setprecision(2) << studentas[k].med << endl;
         }
     }
 
-
+    cout << my_buffer.str();
+    my_buffer.clear();
 }
+
 
 int ndkiekis()
 {
