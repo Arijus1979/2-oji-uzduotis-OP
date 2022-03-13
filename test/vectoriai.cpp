@@ -21,7 +21,6 @@ int main()
     if (A == 'Y' || A == 'y')
     {
         generacija(studentas, i);
-
     }
     else
     {
