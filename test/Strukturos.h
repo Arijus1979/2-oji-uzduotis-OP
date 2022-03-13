@@ -16,3 +16,16 @@ struct stud {              //struktura studento duomenims saugoti
     float gal;
     float med;
 };
+
+void ar_egzistuoja(const string& name);
+void skaicius(int& a);
+void skaiciavimai(vector<stud>& studentas, int j, int pazsum, int i);
+void ivedimas(vector<stud>& studentas, int& i);
+bool rusiavimasvard(stud& a, stud& b);
+bool rusiavimaspavard(stud& a, stud& b);
+void isvedimas(int i, vector<stud> studentas);
+int ndkiekis();
+void nuskaitymas(vector<stud>& studentas, int& i);
+void failogeneracija(string& filename, int a, int b);
+void fruspagalpaz(string& ivedimas, string& kietekai, string& nuskriaustukai, int a, int b);
+void generacija(vector<stud>& studentas, int& i);

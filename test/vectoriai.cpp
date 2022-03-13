@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 #include <chrono>
 
-#include "Funkcijos.h"
+#include "Funkcijos.cpp"
 
 int main()
 {
@@ -52,9 +52,5 @@ int main()
             isvedimas(i, studentas);
         }
     }
-
-
-
-    
 
 }

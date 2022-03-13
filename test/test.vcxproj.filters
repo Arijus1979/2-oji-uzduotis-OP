@@ -36,7 +36,7 @@
     <ClInclude Include="Strukturos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Funkcijos.h">
+    <ClInclude Include="Funkcijos.cpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,23 +1,23 @@
 ﻿Z:\Visual studio\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (test.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   vectoriai.cpp
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.h(35,36): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(35,36): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
           with
           [
               _Ty=int
           ]
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.h(38,73): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.h(41,41): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(38,73): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(41,41): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
           with
           [
               _Ty=int
           ]
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.h(46,52): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.h(47,52): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.h(87,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.h(134,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.h(140,36): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.h(251,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.h(310,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.h(336,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(46,52): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(47,52): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(87,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(134,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(140,36): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(251,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(310,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(336,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\vectoriai.cpp(8,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   test.vcxproj -> C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\x64\Debug\Programa.exe

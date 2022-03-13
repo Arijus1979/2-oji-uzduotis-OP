@@ -158,7 +158,7 @@
     <Text Include="kursiokdai.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Funkcijos.h" />
+    <ClInclude Include="Funkcijos.cpp" />
     <ClInclude Include="Strukturos.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
