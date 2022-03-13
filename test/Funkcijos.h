@@ -209,7 +209,6 @@ void isvedimas(int i, vector<stud> studentas)  //duomenu isvedimo funkcija
     my_buffer.clear();
 }
 
-
 int ndkiekis()
 {
     ifstream in ("kursiokai.txt");
@@ -259,4 +258,147 @@ void nuskaitymas(vector<stud>& studentas, int& i)
 
     in.close();
     
+}
+
+void failogeneracija(string& filename, int a, int b)
+{
+    string vardas, pavarde;
+    ofstream out1 (filename.c_str());
+    auto startTime = high_resolution_clock::now();
+    for (int i = 1; i <= b; i++)
+    {
+        //printf(out1, "Vardas %d Pavarde %d", i, i);
+        vardas = "Vardas" + to_string(i);
+        pavarde = "Pavarde" + to_string(i);
+        out1 << left << setw(20) << vardas;
+        out1 << left << setw(20) << pavarde;
+        for (int j = 0; j < a; j++)
+        {
+            //fprintf(out1, "%d", rand() % 10 + 1);
+            out1 << left << setw(20) << rand() % 10 + 1;
+        }
+        //fprintf(out1, "%d \n", rand() % 10 + 1);
+        out1 << rand() % 10 + 1 << left << setw(20) << endl;
+
+    }
+    auto endTime = high_resolution_clock::now();
+    out1.close();
+    duration<double> diff = endTime - startTime; // Skirtumas (s)
+    cout << b << " " << diff.count() << endl;
+}
+
+void generacija(vector<stud>& studentas, int& i)
+{
+    int a;
+    string out1 = "kursiokai1000.txt";
+    string out2 = "kursiokai10000.txt";
+    string out3 = "kursiokai100000.txt";
+    string out4 = "kursiokai1000000.txt";
+    string out5 = "kursiokai10000000.txt";
+   
+
+    cout << "Kiek pazymiu turi mokiniai? ";
+    skaicius(a);
+
+    failogeneracija(out1, a, 1000);
+    failogeneracija(out2, a, 10000);
+    failogeneracija(out3, a, 100000);
+    failogeneracija(out4, a, 1000000);
+    failogeneracija(out5, a, 10000000);
+
+    
+    //#pragma warning(suppress : 4996) FILE* out1 = fopen("kursiokai1000.txt", "w");
+
+    
+    /*auto startTime = high_resolution_clock::now();
+    for (int i = 1; i <= 1000; i++)
+    {
+        //printf(out1, "Vardas %d Pavarde %d", i, i);
+        vardas = "Vardas" + to_string(i);
+        pavarde = "Pavarde" + to_string(i);
+        out1 << left << setw(20) << vardas;
+        out1 << left << setw(20) << pavarde;
+        for (int j = 0; j < a; j++)
+        {
+            //fprintf(out1, "%d", rand() % 10 + 1);
+            out1 << left << setw(20) << rand() % 10 + 1;
+        }
+        //fprintf(out1, "%d \n", rand() % 10 + 1);
+        out1 << rand() % 10 + 1 << left << setw(20) << endl;
+
+    }
+    auto endTime = high_resolution_clock::now();
+    duration<double> diff = endTime - startTime; // Skirtumas (s)
+    cout << diff.count();
+
+    //fclose(out1);
+    
+    startTime = high_resolution_clock::now();
+    for (int i = 1; i <= 10000; i++)
+    {
+        vardas = "Vardas" + to_string(i);
+        pavarde = "Pavarde" + to_string(i);
+        ss << left << setw(20) << vardas;
+        ss << left << setw(20) << pavarde;
+        for (int j = 0; j < a; j++)
+        {
+            ss << left << setw(20) << rand() % 10 + 1;
+        }
+        ss << rand() % 10 + 1 << left << setw(20) << endl;
+    }
+    out2 << ss.str() << endl;
+    ss.clear();
+
+
+    for (int i = 1; i <= 100000; i++)
+    {
+        vardas = "Vardas" + to_string(i);
+        pavarde = "Pavarde" + to_string(i);
+        ss << left << setw(20) << vardas;
+        ss << left << setw(20) << pavarde;
+        for (int j = 0; j < a; j++)
+        {
+            ss << left << setw(20) << rand() % 10 + 1;
+        }
+        ss << rand() % 10 + 1 << left << setw(20) << endl;
+    }
+    out3 << ss.str() << endl;
+    ss.clear();
+
+
+    startTime = high_resolution_clock::now();
+    for (int i = 1; i <= 1000000; i++)
+    {
+        vardas = "Vardas" + to_string(i);
+        pavarde = "Pavarde" + to_string(i);
+        ss << left << setw(20) << vardas;
+        ss << left << setw(20) << pavarde;
+        for (int j = 0; j < a; j++)
+        {
+            ss << left << setw(20) << rand() % 10 + 1;
+        }
+        ss << rand() % 10 + 1 << left << setw(20) << endl;
+    }
+    out4 << ss.str() << endl;
+    ss.clear();
+
+    for (int i = 1; i <= 10000000; i++)
+    {
+        vardas = "Vardas" + to_string(i);
+        pavarde = "Pavarde" + to_string(i);
+        ss << left << setw(20) << vardas;
+        ss << left << setw(20) << pavarde;
+        for (int j = 0; j < a; j++)
+        {
+            ss << left << setw(20) << rand() % 10 + 1;
+        }
+        ss << rand() % 10 + 1 << left << setw(20) << endl;
+    }
+    out5 << ss.str() << endl;
+    ss.clear();*/
+}
+
+void fruspagalpaz()
+{
+
 }

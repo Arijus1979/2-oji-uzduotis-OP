@@ -33,3 +33,8 @@
 /.vs
 
 x64/
+/test/kursiokai10000000.txt
+/test/kursiokai1000000.txt
+/test/kursiokai100000.txt
+/test/kursiokai10000.txt
+/test/kursiokai1000.txt

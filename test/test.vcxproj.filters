@@ -26,6 +26,11 @@
     <Text Include="kursiokdai.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="kursiokai1000.txt" />
+    <Text Include="kursiokai10000.txt" />
+    <Text Include="kursiokai100000.txt" />
+    <Text Include="kursiokai1000000.txt" />
+    <Text Include="kursiokai10000000.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Strukturos.h">

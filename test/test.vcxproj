@@ -148,6 +148,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="kursiokai1000.txt">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+    </Text>
+    <Text Include="kursiokai10000.txt" />
+    <Text Include="kursiokai100000.txt" />
+    <Text Include="kursiokai1000000.txt" />
+    <Text Include="kursiokai10000000.txt" />
     <Text Include="kursiokdai.txt" />
   </ItemGroup>
   <ItemGroup>
