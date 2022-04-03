@@ -24,7 +24,7 @@ int main()
     }
     else
     {
-        cout << "Ar norite failus nuskaityti is failo? [Y/N] ";
+        cout << "Ar turite jau sugeneruotus duomenu failus? [Y/N] ";
         while (true)
         {
             cin >> A;
@@ -34,22 +34,36 @@ int main()
         }
         if (A == 'Y' || A == 'y')
         {
-            try
-            {
-                ar_egzistuoja("kursiokai.txt");
-                nuskaitymas(studentas, i);
-                isvedimas(i, studentas);
-            }
-            catch (const char* msg)
-            {
-                cerr << msg << endl;
-            }
-
+            greicioskaiciavimai();
         }
         else
         {
-            ivedimas(studentas, i);
-            isvedimas(i, studentas);
+            cout << "Ar norite duomenis nuskaityti is failo? [Y/N] ";
+            while (true)
+            {
+                cin >> A;
+                if (A != 'y' && A != 'n' && A != 'Y' && A != 'N')
+                    cout << "Y/N ";
+                else break;
+            }
+            if (A == 'Y' || A == 'y')
+            {
+                try
+                {
+                    ar_egzistuoja("kursiokai.txt");
+                    nuskaitymas(studentas, i);
+                    isvedimas(i, studentas);
+                }
+                catch (const char* msg)
+                {
+                    cerr << msg << endl;
+                }
+            }
+            else
+            {
+                ivedimas(studentas, i);
+                isvedimas(i, studentas);
+            }
         }
     }
 

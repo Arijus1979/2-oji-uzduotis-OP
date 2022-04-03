@@ -212,8 +212,6 @@ void isvedimas(int i, vector<stud> studentas)  //duomenu isvedimo funkcija
 int ndkiekis()
 {
     ifstream in ("kursiokai.txt");
-
-
     string a;
     int q = 0;
     while (true)
@@ -263,31 +261,42 @@ void nuskaitymas(vector<stud>& studentas, int& i)
 void failogeneracija(string& filename, int a, int b)
 {
     string vardas, pavarde;
-    ofstream out1 (filename.c_str());
+    ofstream out1 (filename);
+
+    out1 << left << setw(20) << "Vardas" << left << setw(20) << "Pavarde";
+    for (int i = 1; i <= a; i++)
+    {
+        out1 << left << setw(20) << "ND" + to_string(i);
+    }
+    out1 << left << setw(20) << "Egz." << endl;
+
+    stringstream buffer;
     auto startTime = high_resolution_clock::now();
     for (int i = 1; i <= b; i++)
     {
         //printf(out1, "Vardas %d Pavarde %d", i, i);
         vardas = "Vardas" + to_string(i);
         pavarde = "Pavarde" + to_string(i);
-        out1 << left << setw(20) << vardas;
-        out1 << left << setw(20) << pavarde;
+        buffer << left << setw(20) << vardas;
+        buffer << left << setw(20) << pavarde;
         for (int j = 0; j < a; j++)
         {
             //fprintf(out1, "%d", rand() % 10 + 1);
-            out1 << left << setw(20) << rand() % 10 + 1;
+            buffer << left << setw(20) << rand() % 10 + 1;
         }
         //fprintf(out1, "%d \n", rand() % 10 + 1);
-        out1 << rand() % 10 + 1 << left << setw(20) << endl;
-
+        buffer << rand() % 10 + 1 << left << setw(20) << endl;
     }
+
+    out1 << buffer.str();
+    buffer.str("");
     auto endTime = high_resolution_clock::now();
     out1.close();
     duration<double> diff = endTime - startTime; // Skirtumas (s)
     cout << b << " mokiniu ir ju pazymiu generavimo i faila laikas: " << diff.count() << endl;
 }
 
-void fruspagalpaz(string& ivedimas, string& kietekai, string& nuskriaustukai, int a, int b)
+void fruspagalpaz_vector(string& ivedimas, string& kietekai, string& nuskriaustukai, int a, int b)
 {
     int paz, egz, sum = 0;
     float gal;
@@ -295,61 +304,238 @@ void fruspagalpaz(string& ivedimas, string& kietekai, string& nuskriaustukai, in
     ifstream in(ivedimas.c_str());
     ofstream out1(nuskriaustukai.c_str());
     ofstream out2(kietekai.c_str());
-    auto rusiavimasTime = high_resolution_clock::now();
 
+    string q;
+    a = 0;
+    while (true)
+    {
+        in >> q;
+        a++;
+        if (q == "Egz.")
+        {
+            break;
+        }
+
+    }
+    a = a - 3;
+    cout << a << endl;
+
+    vector<stud> studentas;
+    stringstream buffer;
     auto startTime = high_resolution_clock::now();
     for (int i = 0; i < b; i++)
     {
-        in >> vardas >> pavarde;
+        studentas.push_back(stud());
+        in >> studentas[i].vardas >> studentas[i].pavarde;
         for (int j = 0; j < a; j++)
         {
             in >> paz;
             sum += paz;
         }
-        in >> egz;
-        gal = (0.4 * (sum / (float)a)) + (0.6 * (float)egz);
-        if (gal < 5)
-        {
-            out1 << left << setw(20) << vardas;
-            out1 << left << setw(20) << pavarde;
-            out1 << left << setw(20) << gal << endl;
-        }
+        in >> studentas[i].egz;
+        studentas[i].gal = (0.4 * (sum / (float)a)) + (0.6 * (float)studentas[i].egz);
         sum = 0;
     }
     auto endTime = high_resolution_clock::now();
-    in.close();
-    out1.close();
     duration<double> diff = endTime - startTime; // Skirtumas (s)
-    cout << b << " vargseliu dalijimo i faila laikas: " << diff.count() << endl;
+    cout << "nuskaitymas uztruko: " << diff.count() << endl;
 
-    ifstream in2(ivedimas.c_str());
+    vector <stud> vargseliai;
+    vector <stud> kietiakai;
     startTime = high_resolution_clock::now();
     for (int i = 0; i < b; i++)
     {
-        in2 >> vardas >> pavarde;
-        for (int j = 0; j < a; j++)
+        if (studentas[i].gal < 5)
         {
-            in2 >> paz;
-            sum += paz;
+            vargseliai.push_back(studentas[i]);
         }
-        in2 >> egz;
-        gal = (0.4 * (sum / (float)a)) + (0.6 * (float)egz);
-        if (gal >= 5)
-        {
-            out2 << left << setw(20) << vardas;
-            out2 << left << setw(20) << pavarde;
-            out2 << left << setw(20) << gal << endl;
-        }
-        sum = 0;
+        else
+            kietiakai.push_back(studentas[i]);
     }
     endTime = high_resolution_clock::now();
+    diff = endTime - startTime; // Skirtumas (s)
+    cout << b << " dalijimo i dvi grupes laikas: " << diff.count() << endl;
+
+    studentas.clear();
+    vargseliai.shrink_to_fit();
+    kietiakai.shrink_to_fit();
+
+    startTime = high_resolution_clock::now();
+
+    for (int i = 0; i < vargseliai.size(); i++)
+    {
+        buffer << left << setw(20) << vargseliai[i].vardas;
+        buffer << left << setw(20) << vargseliai[i].pavarde;
+        buffer << left << setw(20) << vargseliai[i].gal << endl;
+    }
+
+    out1 << buffer.str() << endl;
+    buffer.str("");
+    endTime = high_resolution_clock::now();
+    in.close();
+    out1.close();
+    diff = endTime - startTime; // Skirtumas (s)
+    cout << b << " vargseliu dalijimo i faila laikas: " << diff.count() << endl;
+
+    ifstream in2(ivedimas.c_str());
+    a = 0;
+    while (true)
+    {
+        in2 >> q;
+        a++;
+        if (q == "Egz.")
+        {
+            break;
+        }
+
+    }
+    a = a - 3;
+
+    startTime = high_resolution_clock::now();
+    for (int i = 0; i < kietiakai.size(); i++)
+    {
+        buffer << left << setw(20) << kietiakai[i].vardas;
+        buffer << left << setw(20) << kietiakai[i].pavarde;
+        buffer << left << setw(20) << kietiakai[i].gal << endl;
+    }
+    endTime = high_resolution_clock::now();
+
+    studentas.clear();
+    kietiakai.clear();
+    vargseliai.clear();
+    out2 << buffer.str() << endl;
+    buffer.str("");
+    
     in2.close();
     out2.close();
     diff = endTime - startTime; // Skirtumas (s)
     cout << b << " kieteku dalijimo i faila laikas: " << diff.count() << endl;
-    diff = endTime - rusiavimasTime; // Skirtumas (s)
+
+}
+
+void fruspagalpaz_deque(string& ivedimas, string& kietekai, string& nuskriaustukai, int a, int b)
+{
+    int paz, egz, sum = 0;
+    float gal;
+    string vardas, pavarde;
+    ifstream in(ivedimas.c_str());
+
+    string q;
+    a = 0;
+    while (true)
+    {
+        in >> q;
+        a++;
+        if (q == "Egz.")
+        {
+            break;
+        }
+
+    }
+    a = a - 3;
+
+    deque<stud> studentas;
+    auto startTime = high_resolution_clock::now();
+    for (int i = 0; i < b; i++)
+    {
+        studentas.push_back(stud());
+        in >> studentas[i].vardas >> studentas[i].pavarde;
+        for (int j = 0; j < a; j++)
+        {
+            in >> paz;
+            sum += paz;
+        }
+        in >> studentas[i].egz;
+        studentas[i].gal = (0.4 * (sum / (float)a)) + (0.6 * (float)studentas[i].egz);
+        sum = 0;
+    }
+    auto endTime = high_resolution_clock::now();
+    duration<double> diff = endTime - startTime; // Skirtumas (s)
+    cout << "nuskaitymas uztruko: " << diff.count() << endl;
+    in.close();
+    deque <stud> vargseliai;
+    deque <stud> kietiakai;
+
+    startTime = high_resolution_clock::now();
+    for (int i = 0; i < b; i++)
+    {
+        if (studentas[i].gal < 5)
+        {
+            vargseliai.push_back(studentas[i]);
+        }
+        else
+            kietiakai.push_back(studentas[i]);
+    }
+    endTime = high_resolution_clock::now();
+    diff = endTime - startTime; // Skirtumas (s)
     cout << b << " dalijimo i dvi grupes laikas: " << diff.count() << endl;
 
+    studentas.clear();
+    kietiakai.clear();
+    vargseliai.clear();
+}
+
+void fruspagalpaz_list(string& ivedimas, string& kietekai, string& nuskriaustukai, int a, int b)
+{
+    int paz, egz, sum = 0;
+    float gal;
+    string vardas, pavarde;
+    ifstream in(ivedimas.c_str());
+
+    string q;
+    a = 0;
+    while (true)
+    {
+        in >> q;
+        a++;
+        if (q == "Egz.")
+        {
+            break;
+        }
+
+    }
+    a = a - 3;
+
+    list<stud> studentas;
+    stud s;
+    auto startTime = high_resolution_clock::now();
+    for (int i = 0; i < b; i++)
+    {
+        in >> s.vardas >> s.pavarde;
+        for (int j = 0; j < a; j++)
+        {
+            in >> paz;
+            sum += paz;
+        }
+        in >> s.egz;
+        s.gal = (0.4 * (sum / (float)a)) + (0.6 * (float)s.egz);
+        sum = 0;
+        studentas.push_back(s);
+    }
+    auto endTime = high_resolution_clock::now();
+    duration<double> diff = endTime - startTime; // Skirtumas (s)
+    cout << "nuskaitymas uztruko: " << diff.count() << endl;
+    in.close();
+    list <stud> vargseliai;
+    list <stud> kietiakai;
+
+    startTime = high_resolution_clock::now();
+    for (int i = 0; i < b; i++)
+    {
+        if (s.gal < 5)
+        {
+            vargseliai.push_back(s);
+        }
+        else
+            kietiakai.push_back(s);
+    }
+    endTime = high_resolution_clock::now();
+    diff = endTime - startTime; // Skirtumas (s)
+    cout << b << " dalijimo i dvi grupes laikas: " << diff.count() << endl;
+
+    studentas.clear();
+    kietiakai.clear();
+    vargseliai.clear();
 }
 
 void generacija(vector<stud>& studentas, int& i)
@@ -375,136 +561,190 @@ void generacija(vector<stud>& studentas, int& i)
 
     cout << "Kiek pazymiu turi mokiniai? ";
     skaicius(a);
-
-    auto startTime = high_resolution_clock::now();
+    
     failogeneracija(out1, a, 1000);
-    fruspagalpaz(out1, out1000k, out1000n, a, 1000);
-    auto endTime = high_resolution_clock::now();
-    duration<double> diff = endTime - startTime; // Skirtumas (s)
-    cout << "1000" << " irasu programos veikimo laikas: " << diff.count() << endl << endl;
-    system("pause");
-
-    startTime = high_resolution_clock::now();
     failogeneracija(out2, a, 10000);
-    fruspagalpaz(out2, out10000k, out10000n, a, 10000);
-    endTime = high_resolution_clock::now();
-    diff = endTime - startTime; // Skirtumas (s)
-    cout << "10000" << " irasu programos veikimo laikas: " << diff.count() << endl << endl;
-    system("pause");
-
-    startTime = high_resolution_clock::now();
     failogeneracija(out3, a, 100000);
-    fruspagalpaz(out3, out100000k, out100000n, a, 100000);
-    endTime = high_resolution_clock::now();
-    diff = endTime - startTime; // Skirtumas (s)
-    cout << "100000" << " irasu programos veikimo laikas: " << diff.count() << endl << endl;
-    system("pause");
-
-    startTime = high_resolution_clock::now();
     failogeneracija(out4, a, 1000000);
-    fruspagalpaz(out4, out1000000k, out1000000n, a, 1000000);
-    endTime = high_resolution_clock::now();
-    diff = endTime - startTime; // Skirtumas (s)
-    cout << "1000000" << " irasu programos veikimo laikas: " << diff.count() << endl << endl;
-    system("pause");
-
-    startTime = high_resolution_clock::now();
     failogeneracija(out5, a, 10000000);
-    fruspagalpaz(out5, out10000000k, out10000000n, a, 10000000);
-    endTime = high_resolution_clock::now();
-    diff = endTime - startTime; // Skirtumas (s)
-    cout << "10000000" << " irasu programos veikimo laikas: " << diff.count() << endl << endl;
-    system("pause");
-    
-    //#pragma warning(suppress : 4996) FILE* out1 = fopen("kursiokai1000.txt", "w");
-
-    
-    /*auto startTime = high_resolution_clock::now();
-    for (int i = 1; i <= 1000; i++)
-    {
-        //printf(out1, "Vardas %d Pavarde %d", i, i);
-        vardas = "Vardas" + to_string(i);
-        pavarde = "Pavarde" + to_string(i);
-        out1 << left << setw(20) << vardas;
-        out1 << left << setw(20) << pavarde;
-        for (int j = 0; j < a; j++)
-        {
-            //fprintf(out1, "%d", rand() % 10 + 1);
-            out1 << left << setw(20) << rand() % 10 + 1;
-        }
-        //fprintf(out1, "%d \n", rand() % 10 + 1);
-        out1 << rand() % 10 + 1 << left << setw(20) << endl;
-
-    }
-    auto endTime = high_resolution_clock::now();
-    duration<double> diff = endTime - startTime; // Skirtumas (s)
-    cout << diff.count();
-
-    //fclose(out1);
-    
-    startTime = high_resolution_clock::now();
-    for (int i = 1; i <= 10000; i++)
-    {
-        vardas = "Vardas" + to_string(i);
-        pavarde = "Pavarde" + to_string(i);
-        ss << left << setw(20) << vardas;
-        ss << left << setw(20) << pavarde;
-        for (int j = 0; j < a; j++)
-        {
-            ss << left << setw(20) << rand() % 10 + 1;
-        }
-        ss << rand() % 10 + 1 << left << setw(20) << endl;
-    }
-    out2 << ss.str() << endl;
-    ss.clear();
-
-
-    for (int i = 1; i <= 100000; i++)
-    {
-        vardas = "Vardas" + to_string(i);
-        pavarde = "Pavarde" + to_string(i);
-        ss << left << setw(20) << vardas;
-        ss << left << setw(20) << pavarde;
-        for (int j = 0; j < a; j++)
-        {
-            ss << left << setw(20) << rand() % 10 + 1;
-        }
-        ss << rand() % 10 + 1 << left << setw(20) << endl;
-    }
-    out3 << ss.str() << endl;
-    ss.clear();
-
-
-    startTime = high_resolution_clock::now();
-    for (int i = 1; i <= 1000000; i++)
-    {
-        vardas = "Vardas" + to_string(i);
-        pavarde = "Pavarde" + to_string(i);
-        ss << left << setw(20) << vardas;
-        ss << left << setw(20) << pavarde;
-        for (int j = 0; j < a; j++)
-        {
-            ss << left << setw(20) << rand() % 10 + 1;
-        }
-        ss << rand() % 10 + 1 << left << setw(20) << endl;
-    }
-    out4 << ss.str() << endl;
-    ss.clear();
-
-    for (int i = 1; i <= 10000000; i++)
-    {
-        vardas = "Vardas" + to_string(i);
-        pavarde = "Pavarde" + to_string(i);
-        ss << left << setw(20) << vardas;
-        ss << left << setw(20) << pavarde;
-        for (int j = 0; j < a; j++)
-        {
-            ss << left << setw(20) << rand() % 10 + 1;
-        }
-        ss << rand() % 10 + 1 << left << setw(20) << endl;
-    }
-    out5 << ss.str() << endl;
-    ss.clear();*/
 }
 
+void greicioskaiciavimai()
+{
+    string out1 = "kursiokai1000.txt";
+    string out2 = "kursiokai10000.txt";
+    string out3 = "kursiokai100000.txt";
+    string out4 = "kursiokai1000000.txt";
+    string out5 = "kursiokai10000000.txt";
 
+    string out1000k = "1000k.txt";
+    string out1000n = "1000n.txt";
+    string out10000k = "10000k.txt";
+    string out10000n = "10000n.txt";
+    string out100000k = "100000k.txt";
+    string out100000n = "100000n.txt";
+    string out1000000k = "1000000k.txt";
+    string out1000000n = "1000000n.txt";
+    string out10000000k = "10000000k.txt";
+    string out10000000n = "10000000n.txt";
+
+    int a = 0;
+    char A;
+    //--------------------------------------------------------------------------------------
+    cout << "Ar norite naudoti vector konteineri? [Y/N] ";
+    while (true)
+    {
+        cin >> A;
+        if (A != 'y' && A != 'n' && A != 'Y' && A != 'N')
+            cout << "Y/N ";
+        else break;
+    }
+    if (A == 'Y' || A == 'y')
+    {
+        auto startTime = high_resolution_clock::now();
+        fruspagalpaz_vector(out1, out1000k, out1000n, a, 1000);
+        auto endTime = high_resolution_clock::now();
+        duration<double> diff = endTime - startTime; // Skirtumas (s)
+        cout << "1000" << " irasu programos veikimo laikas: " << diff.count() << endl << endl;
+        system("pause");
+        //--------------------------------------------------------------------------------------
+        startTime = high_resolution_clock::now();
+        fruspagalpaz_vector(out2, out10000k, out10000n, a, 10000);
+        endTime = high_resolution_clock::now();
+        diff = endTime - startTime; // Skirtumas (s)
+        cout << "10000" << " irasu programos veikimo laikas: " << diff.count() << endl << endl;
+        system("pause");
+        //--------------------------------------------------------------------------------------
+        startTime = high_resolution_clock::now();
+
+        fruspagalpaz_vector(out3, out100000k, out100000n, a, 100000);
+        endTime = high_resolution_clock::now();
+        diff = endTime - startTime; // Skirtumas (s)
+        cout << "100000" << " irasu programos veikimo laikas: " << diff.count() << endl << endl;
+        system("pause");
+        //--------------------------------------------------------------------------------------
+        startTime = high_resolution_clock::now();
+        fruspagalpaz_vector(out4, out1000000k, out1000000n, a, 1000000);
+        endTime = high_resolution_clock::now();
+        diff = endTime - startTime; // Skirtumas (s)
+        cout << "1000000" << " irasu programos veikimo laikas: " << diff.count() << endl << endl;
+        system("pause");
+        //--------------------------------------------------------------------------------------
+        startTime = high_resolution_clock::now();
+
+        fruspagalpaz_vector(out5, out10000000k, out10000000n, a, 10000000);
+        endTime = high_resolution_clock::now();
+        diff = endTime - startTime; // Skirtumas (s)
+        cout << "10000000" << " irasu programos veikimo laikas: " << diff.count() << endl << endl;
+        system("pause");
+        //--------------------------------------------------------------------------------------
+
+    }
+    else
+    {
+        cout << "Ar norite naudoti deque konteineri? [Y/N] ";
+        while (true)
+        {
+            cin >> A;
+            if (A != 'y' && A != 'n' && A != 'Y' && A != 'N')
+                cout << "Y/N ";
+            else break;
+        }
+        if (A == 'Y' || A == 'y')
+        {
+            auto startTime = high_resolution_clock::now();
+            fruspagalpaz_deque(out1, out1000k, out1000n, a, 1000);
+            auto endTime = high_resolution_clock::now();
+            duration<double> diff = endTime - startTime; // Skirtumas (s)
+            cout << "1000" << " irasu programos veikimo laikas: " << diff.count() << endl << endl;
+            system("pause");
+            //--------------------------------------------------------------------------------------
+            startTime = high_resolution_clock::now();
+            fruspagalpaz_deque(out2, out10000k, out10000n, a, 10000);
+            endTime = high_resolution_clock::now();
+            diff = endTime - startTime; // Skirtumas (s)
+            cout << "10000" << " irasu programos veikimo laikas: " << diff.count() << endl << endl;
+            system("pause");
+            //--------------------------------------------------------------------------------------
+            startTime = high_resolution_clock::now();
+
+            fruspagalpaz_deque(out3, out100000k, out100000n, a, 100000);
+            endTime = high_resolution_clock::now();
+            diff = endTime - startTime; // Skirtumas (s)
+            cout << "100000" << " irasu programos veikimo laikas: " << diff.count() << endl << endl;
+            system("pause");
+            //--------------------------------------------------------------------------------------
+            startTime = high_resolution_clock::now();
+            fruspagalpaz_deque(out4, out1000000k, out1000000n, a, 1000000);
+            endTime = high_resolution_clock::now();
+            diff = endTime - startTime; // Skirtumas (s)
+            cout << "1000000" << " irasu programos veikimo laikas: " << diff.count() << endl << endl;
+            system("pause");
+            //--------------------------------------------------------------------------------------
+            startTime = high_resolution_clock::now();
+
+            fruspagalpaz_deque(out5, out10000000k, out10000000n, a, 10000000);
+            endTime = high_resolution_clock::now();
+            diff = endTime - startTime; // Skirtumas (s)
+            cout << "10000000" << " irasu programos veikimo laikas: " << diff.count() << endl << endl;
+            system("pause");
+            //--------------------------------------------------------------------------------------
+        }
+        else
+        {
+            cout << "Ar norite naudoti list konteineri? [Y/N] ";
+            while (true)
+            {
+                cin >> A;
+                if (A != 'y' && A != 'n' && A != 'Y' && A != 'N')
+                    cout << "Y/N ";
+                else break;
+            }
+            if (A == 'Y' || A == 'y')
+            {
+                auto startTime = high_resolution_clock::now();
+                fruspagalpaz_list(out1, out1000k, out1000n, a, 1000);
+                auto endTime = high_resolution_clock::now();
+                duration<double> diff = endTime - startTime; // Skirtumas (s)
+                cout << "1000" << " irasu programos veikimo laikas: " << diff.count() << endl << endl;
+                system("pause");
+                //--------------------------------------------------------------------------------------
+                startTime = high_resolution_clock::now();
+                fruspagalpaz_list(out2, out10000k, out10000n, a, 10000);
+                endTime = high_resolution_clock::now();
+                diff = endTime - startTime; // Skirtumas (s)
+                cout << "10000" << " irasu programos veikimo laikas: " << diff.count() << endl << endl;
+                system("pause");
+                //--------------------------------------------------------------------------------------
+                startTime = high_resolution_clock::now();
+
+                fruspagalpaz_list(out3, out100000k, out100000n, a, 100000);
+                endTime = high_resolution_clock::now();
+                diff = endTime - startTime; // Skirtumas (s)
+                cout << "100000" << " irasu programos veikimo laikas: " << diff.count() << endl << endl;
+                system("pause");
+                //--------------------------------------------------------------------------------------
+                startTime = high_resolution_clock::now();
+                fruspagalpaz_list(out4, out1000000k, out1000000n, a, 1000000);
+                endTime = high_resolution_clock::now();
+                diff = endTime - startTime; // Skirtumas (s)
+                cout << "1000000" << " irasu programos veikimo laikas: " << diff.count() << endl << endl;
+                system("pause");
+                //--------------------------------------------------------------------------------------
+                startTime = high_resolution_clock::now();
+
+                fruspagalpaz_list(out5, out10000000k, out10000000n, a, 10000000);
+                endTime = high_resolution_clock::now();
+                diff = endTime - startTime; // Skirtumas (s)
+                cout << "10000000" << " irasu programos veikimo laikas: " << diff.count() << endl << endl;
+                system("pause");
+                //--------------------------------------------------------------------------------------
+            }
+            else
+                cout << "Programos pabaiga.";
+        }
+    }
+    
+    
+    
+}
