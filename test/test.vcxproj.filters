@@ -18,8 +18,11 @@
     <ClCompile Include="masyvai.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="vectoriai.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="2strategija.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -36,7 +39,7 @@
     <ClInclude Include="Strukturos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Funkcijos.cpp">
+    <ClInclude Include="1strategija.cpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

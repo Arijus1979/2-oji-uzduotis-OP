@@ -1,7 +1,9 @@
 #include <bits/stdc++.h>
 #include <chrono>
 
-#include "Funkcijos.cpp"
+#include "1strategija.cpp"
+#include "2strategija.cpp"
+
 
 int main()
 {

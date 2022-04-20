@@ -1,30 +1,39 @@
 ﻿Z:\Visual studio\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (test.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  vectoriai.cpp
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(35,36): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
+  main.cpp
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(35,36): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
           with
           [
               _Ty=int
           ]
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(38,73): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(41,41): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(38,73): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(41,41): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
           with
           [
               _Ty=int
           ]
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(46,52): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(47,52): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(87,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(134,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(140,36): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(249,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(336,53): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(301,14): warning C4101: 'egz': unreferenced local variable
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(302,11): warning C4101: 'gal': unreferenced local variable
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(449,53): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(418,14): warning C4101: 'egz': unreferenced local variable
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(419,11): warning C4101: 'gal': unreferenced local variable
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(511,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(480,14): warning C4101: 'egz': unreferenced local variable
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\Funkcijos.cpp(481,11): warning C4101: 'gal': unreferenced local variable
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\vectoriai.cpp(8,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(46,52): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(47,52): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(87,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(134,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(140,36): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(254,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(341,53): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(306,14): warning C4101: 'egz': unreferenced local variable
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(307,11): warning C4101: 'gal': unreferenced local variable
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(454,53): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(423,14): warning C4101: 'egz': unreferenced local variable
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(424,11): warning C4101: 'gal': unreferenced local variable
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(516,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(485,14): warning C4101: 'egz': unreferenced local variable
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(486,11): warning C4101: 'gal': unreferenced local variable
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\2strategija.cpp(40,53): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\2strategija.cpp(5,14): warning C4101: 'egz': unreferenced local variable
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\2strategija.cpp(6,11): warning C4101: 'gal': unreferenced local variable
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\2strategija.cpp(149,53): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\2strategija.cpp(118,14): warning C4101: 'egz': unreferenced local variable
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\2strategija.cpp(119,11): warning C4101: 'gal': unreferenced local variable
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\2strategija.cpp(210,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\2strategija.cpp(179,14): warning C4101: 'egz': unreferenced local variable
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\2strategija.cpp(180,11): warning C4101: 'gal': unreferenced local variable
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\main.cpp(10,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   test.vcxproj -> C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\x64\Debug\Programa.exe
