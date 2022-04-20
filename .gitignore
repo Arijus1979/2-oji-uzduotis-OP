@@ -49,4 +49,5 @@ x64/
 /test/10000000n.txt
 /test/10000000k.txt
 
-/test/x64
+test/x64/
+/.vscode
