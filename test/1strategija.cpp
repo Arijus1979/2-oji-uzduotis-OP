@@ -1,7 +1,8 @@
 #pragma once
 
 #include "Strukturos.h"
-
+ifstream in("kursiokai.txt");
+bool skaitymasisfailo = false;
 
 void ar_egzistuoja(const string& name)
 {

@@ -141,7 +141,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="2strategija.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="masyvai.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
@@ -159,10 +159,14 @@
     <Text Include="kursiokai1000000.txt" />
     <Text Include="kursiokai10000000.txt" />
     <Text Include="kursiokdai.txt" />
+    <Text Include="makefile.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="1strategija.cpp" />
     <ClInclude Include="Strukturos.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="makefile" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,8 +1,4 @@
-#include <bits/stdc++.h>
-#include <chrono>
-
-#include "1strategija.cpp"
-#include "2strategija.cpp"
+#include "Strukturos.h"
 
 
 int main()

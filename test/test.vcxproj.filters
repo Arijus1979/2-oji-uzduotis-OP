@@ -22,7 +22,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="2strategija.cpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -34,13 +34,21 @@
     <Text Include="kursiokai100000.txt" />
     <Text Include="kursiokai1000000.txt" />
     <Text Include="kursiokai10000000.txt" />
+    <Text Include="makefile.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Strukturos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="1strategija.cpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="makefile">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

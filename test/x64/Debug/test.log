@@ -1,39 +1,11 @@
 ﻿Z:\Visual studio\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (test.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   main.cpp
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(35,36): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=int
-          ]
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(38,73): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(41,41): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=int
-          ]
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(46,52): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(47,52): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(87,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(134,32): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(140,36): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(254,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(341,53): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(306,14): warning C4101: 'egz': unreferenced local variable
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(307,11): warning C4101: 'gal': unreferenced local variable
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(454,53): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(423,14): warning C4101: 'egz': unreferenced local variable
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(424,11): warning C4101: 'gal': unreferenced local variable
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(516,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(485,14): warning C4101: 'egz': unreferenced local variable
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\1strategija.cpp(486,11): warning C4101: 'gal': unreferenced local variable
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\2strategija.cpp(40,53): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\2strategija.cpp(5,14): warning C4101: 'egz': unreferenced local variable
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\2strategija.cpp(6,11): warning C4101: 'gal': unreferenced local variable
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\2strategija.cpp(149,53): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\2strategija.cpp(118,14): warning C4101: 'egz': unreferenced local variable
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\2strategija.cpp(119,11): warning C4101: 'gal': unreferenced local variable
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\2strategija.cpp(210,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\2strategija.cpp(179,14): warning C4101: 'egz': unreferenced local variable
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\2strategija.cpp(180,11): warning C4101: 'gal': unreferenced local variable
-C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\main.cpp(10,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  test.vcxproj -> C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\x64\Debug\Programa.exe
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\test\main.cpp(6,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+2strategija.obj : error LNK2019: unresolved external symbol "bool __cdecl rusiavimas(struct stud &,struct stud &)" (?rusiavimas@@YA_NAEAUstud@@0@Z) referenced in function "void __cdecl fruspagalpaz_list_du(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &,int,int)" (?fruspagalpaz_list_du@@YAXAEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@00HH@Z)
+main.obj : error LNK2019: unresolved external symbol "void __cdecl ar_egzistuoja(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?ar_egzistuoja@@YAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) referenced in function main
+main.obj : error LNK2019: unresolved external symbol "void __cdecl ivedimas(class std::vector<struct stud,class std::allocator<struct stud> > &,int &)" (?ivedimas@@YAXAEAV?$vector@Ustud@@V?$allocator@Ustud@@@std@@@std@@AEAH@Z) referenced in function main
+main.obj : error LNK2019: unresolved external symbol "void __cdecl isvedimas(int,class std::vector<struct stud,class std::allocator<struct stud> >)" (?isvedimas@@YAXHV?$vector@Ustud@@V?$allocator@Ustud@@@std@@@std@@@Z) referenced in function main
+main.obj : error LNK2019: unresolved external symbol "void __cdecl nuskaitymas(class std::vector<struct stud,class std::allocator<struct stud> > &,int &)" (?nuskaitymas@@YAXAEAV?$vector@Ustud@@V?$allocator@Ustud@@@std@@@std@@AEAH@Z) referenced in function main
+main.obj : error LNK2019: unresolved external symbol "void __cdecl generacija(class std::vector<struct stud,class std::allocator<struct stud> > &,int &)" (?generacija@@YAXAEAV?$vector@Ustud@@V?$allocator@Ustud@@@std@@@std@@AEAH@Z) referenced in function main
+main.obj : error LNK2019: unresolved external symbol "void __cdecl greicioskaiciavimai(void)" (?greicioskaiciavimai@@YAXXZ) referenced in function main
+C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\Objektinis programavimas\x64\Debug\Programa.exe : fatal error LNK1120: 7 unresolved externals

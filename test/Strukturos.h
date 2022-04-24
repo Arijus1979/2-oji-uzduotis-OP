@@ -1,12 +1,10 @@
 #pragma once
 
+#include <chrono>
+#include <bits/stdc++.h>
 
 using namespace std;
 using namespace std::chrono;
-
-ifstream in("kursiokai.txt");
-
-bool skaitymasisfailo = false;
 
 
 struct stud {              //struktura studento duomenims saugoti
