@@ -1,4 +1,5 @@
-#include "Strukturos.h"
+﻿#include "Strukturos.h"
+
 
 void fruspagalpaz_vector_du(string& ivedimas, string& kietekai, string& nuskriaustukai, int a, int b)
 {
@@ -24,36 +25,52 @@ void fruspagalpaz_vector_du(string& ivedimas, string& kietekai, string& nuskriau
     a = a - 3;
     cout << a << endl;
 
-    vector<stud> studentas;
     stringstream buffer;
+
+    vector<class_studentas> cl_studentas;
+
+    class_studentas cl_s;
+
     auto startTime = high_resolution_clock::now();
     for (int i = 0; i < b; i++)
     {
-        studentas.push_back(stud());
-        in >> studentas[i].vardas >> studentas[i].pavarde;
+        //in >> s.vardas >> s.pavarde;
+        in >> vardas;
+        cl_s.setName(vardas);
+        in >> pavarde;
+        cl_s.setSurname(pavarde);
+
         for (int j = 0; j < a; j++)
         {
             in >> paz;
             sum += paz;
         }
-        in >> studentas[i].egz;
-        studentas[i].gal = (0.4 * (sum / (float)a)) + (0.6 * (float)studentas[i].egz);
+        //in >> s.egz;
+        in >> egz;
+        cl_s.setEgz(egz);
+
+        //s.gal = (0.4 * (sum / (float)a)) + (0.6 * (float)s.egz);
+        gal = (0.4 * (sum / (float)a)) + (0.6 * (float)cl_s.getEgz());
+        cl_s.setGal(gal);
         sum = 0;
+        cl_studentas.push_back(cl_s);
     }
+
     auto endTime = high_resolution_clock::now();
     duration<double> diff = endTime - startTime; // Skirtumas (s)
     cout << "nuskaitymas uztruko: " << diff.count() << endl;
 
-    vector <stud> vargseliai;
+    vector <class_studentas> cl_vargseliai;
     startTime = high_resolution_clock::now();
-    sort(studentas.begin(), studentas.end(), rusiavimas2);
-    vector<stud>::iterator it = studentas.end();
+    sort(cl_studentas.begin(), cl_studentas.end(), rusiavimas3);
+    
+    vector<class_studentas>::iterator it = cl_studentas.end();
     it--;
-    while (it->gal < 5.0)
+    while (it->getGal() < 5.0)
     {
-        vargseliai.push_back(*it);
-        studentas.pop_back();
-        it = studentas.end();
+        cl_vargseliai.push_back(*it);
+        cl_studentas.pop_back();
+        it = cl_studentas.end();
         it--;
     }
 
@@ -71,16 +88,16 @@ void fruspagalpaz_vector_du(string& ivedimas, string& kietekai, string& nuskriau
     diff = endTime - startTime; // Skirtumas (s)
     cout << b << " dalijimo i dvi grupes laikas: " << diff.count() << endl;
 
-    studentas.shrink_to_fit();
-    vargseliai.shrink_to_fit();
+    cl_studentas.shrink_to_fit();
+    cl_vargseliai.shrink_to_fit();
 
     startTime = high_resolution_clock::now();
 
-    for (int i = 0; i < vargseliai.size(); i++)
+    for (int i = 0; i < cl_vargseliai.size(); i++)
     {
-        buffer << left << setw(20) << vargseliai[i].vardas;
-        buffer << left << setw(20) << vargseliai[i].pavarde;
-        buffer << left << setw(20) << vargseliai[i].gal << endl;
+        buffer << left << setw(20) << cl_vargseliai[i].getName();
+        buffer << left << setw(20) << cl_vargseliai[i].getSurname();
+        buffer << left << setw(20) << cl_vargseliai[i].getGal() << endl;
     }
 
     out1 << buffer.str() << endl;
@@ -106,16 +123,16 @@ void fruspagalpaz_vector_du(string& ivedimas, string& kietekai, string& nuskriau
     a = a - 3;
 
     startTime = high_resolution_clock::now();
-    for (int i = 0; i < studentas.size(); i++)
+    for (int i = 0; i < cl_studentas.size(); i++)
     {
-        buffer << left << setw(20) << studentas[i].vardas;
-        buffer << left << setw(20) << studentas[i].pavarde;
-        buffer << left << setw(20) << studentas[i].gal << endl;
+        buffer << left << setw(20) << cl_studentas[i].getName();
+        buffer << left << setw(20) << cl_studentas[i].getSurname();
+        buffer << left << setw(20) << cl_studentas[i].getGal() << endl;
     }
     endTime = high_resolution_clock::now();
 
-    studentas.clear();
-    vargseliai.clear();
+    cl_studentas.clear();
+    cl_vargseliai.clear();
     out2 << buffer.str() << endl;
     buffer.str("");
 
@@ -147,6 +164,7 @@ void fruspagalpaz_deque_du(string& ivedimas, string& kietekai, string& nuskriaus
     a = a - 3;
 
     deque<stud> studentas;
+
     auto startTime = high_resolution_clock::now();
     for (int i = 0; i < b; i++)
     {

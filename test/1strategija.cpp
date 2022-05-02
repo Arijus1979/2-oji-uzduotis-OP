@@ -1,5 +1,3 @@
-#pragma once
-
 #include "Strukturos.h"
 ifstream in("kursiokai.txt");
 bool skaitymasisfailo = false;
@@ -168,6 +166,12 @@ bool rusiavimas(stud& a, stud& b)
 {
     return a.gal < b.gal;
 }
+
+bool rusiavimas3(class_studentas& a, class_studentas& b)
+{
+    return a.getGal() > b.getGal();
+}
+
 bool rusiavimas2(stud& a, stud& b)
 {
     return a.gal > b.gal;
