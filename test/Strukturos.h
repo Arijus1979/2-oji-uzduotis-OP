@@ -21,6 +21,7 @@ void skaicius(int& a);
 void skaiciavimai(vector<stud>& studentas, int j, int pazsum, int i);
 void ivedimas(vector<stud>& studentas, int& i);
 bool rusiavimas(stud& a, stud& b);
+bool rusiavimas2(stud& a, stud& b);
 bool rusiavimasvard(stud& a, stud& b);
 bool rusiavimaspavard(stud& a, stud& b);
 void isvedimas(int i, vector<stud> studentas);

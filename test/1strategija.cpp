@@ -168,6 +168,10 @@ bool rusiavimas(stud& a, stud& b)
 {
     return a.gal < b.gal;
 }
+bool rusiavimas2(stud& a, stud& b)
+{
+    return a.gal > b.gal;
+}
 
 bool rusiavimaspavard(stud& a, stud& b)
 {
@@ -217,7 +221,7 @@ void isvedimas(int i, vector<stud> studentas)  //duomenu isvedimo funkcija
 
 int ndkiekis()
 {
-    ifstream in ("kursiokai.txt");
+    ifstream in("kursiokai.txt");
     string a;
     int q = 0;
     while (true)
@@ -235,11 +239,11 @@ int ndkiekis()
 
 void nuskaitymas(vector<stud>& studentas, int& i)
 {
-    
+
     int kieknd = ndkiekis();
     float pazsum = 0; // pazymiu suma
     int ndpaz;
-    
+
     studentas.push_back(stud());
     while (!in.eof())
     {
@@ -261,13 +265,13 @@ void nuskaitymas(vector<stud>& studentas, int& i)
     skaitymasisfailo = true;
 
     in.close();
-    
+
 }
 
 void failogeneracija(string& filename, int a, int b)
 {
     string vardas, pavarde;
-    ofstream out1 (filename);
+    ofstream out1(filename);
 
     out1 << left << setw(20) << "Vardas" << left << setw(20) << "Pavarde";
     for (int i = 1; i <= a; i++)
@@ -349,7 +353,7 @@ void fruspagalpaz_vector(string& ivedimas, string& kietekai, string& nuskriaustu
     vector <stud> vargseliai;
     vector <stud> kietiakai;
     startTime = high_resolution_clock::now();
-    for (int i = 0; i < b; i++)
+    for (int i = 0; i < b; i++) //for(auto &kint:studentas)
     {
         if (studentas[i].gal < 5)
         {
@@ -411,7 +415,7 @@ void fruspagalpaz_vector(string& ivedimas, string& kietekai, string& nuskriaustu
     vargseliai.clear();
     out2 << buffer.str() << endl;
     buffer.str("");
-    
+
     in2.close();
     out2.close();
     diff = endTime - startTime; // Skirtumas (s)
@@ -563,11 +567,11 @@ void generacija(vector<stud>& studentas, int& i)
     string out1000000n = "1000000n.txt";
     string out10000000k = "10000000k.txt";
     string out10000000n = "10000000n.txt";
-   
+
 
     cout << "Kiek pazymiu turi mokiniai? ";
     skaicius(a);
-    
+
     failogeneracija(out1, a, 1000);
     failogeneracija(out2, a, 10000);
     failogeneracija(out3, a, 100000);
@@ -918,8 +922,8 @@ void greicioskaiciavimai()
             }
         }
     }
-    
-    
-    
-    
+
+
+
+
 }

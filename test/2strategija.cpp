@@ -46,15 +46,27 @@ void fruspagalpaz_vector_du(string& ivedimas, string& kietekai, string& nuskriau
 
     vector <stud> vargseliai;
     startTime = high_resolution_clock::now();
-    for (int i = 0; i < studentas.size(); i++)
+    sort(studentas.begin(), studentas.end(), rusiavimas2);
+    vector<stud>::iterator it = studentas.end();
+    it--;
+    while (it->gal < 5.0)
     {
-        if (studentas[i].gal < 5)
-        {
-            vargseliai.push_back(studentas[i]);
-            studentas.erase(studentas.begin() + i);
-            i--;
-        }
+        vargseliai.push_back(*it);
+        studentas.pop_back();
+        it = studentas.end();
+        it--;
     }
+
+
+    //for (int i = studentas.size()-1; i >= 0; i--)
+    //{
+    //    if (studentas[i].gal < 5)
+    //    {
+    //        vargseliai.push_back(studentas[i]);
+    //       //studentas.erase(studentas.begin() + i);
+    //        studentas.pop_back();
+    //    }
+    //}
     endTime = high_resolution_clock::now();
     diff = endTime - startTime; // Skirtumas (s)
     cout << b << " dalijimo i dvi grupes laikas: " << diff.count() << endl;
@@ -155,21 +167,33 @@ void fruspagalpaz_deque_du(string& ivedimas, string& kietekai, string& nuskriaus
     in.close();
     deque <stud> vargseliai;
 
+    sort(studentas.begin(), studentas.end(), rusiavimas2);
+
     startTime = high_resolution_clock::now();
-    int i = 0;
-    for (int i = 0; i < studentas.size(); i++)
+    deque<stud>::iterator it = studentas.end();
+    it--;
+    while (it->gal < 5.0)
     {
-        if (studentas[i].gal < 5.0)
-        {
-            vargseliai.push_back(studentas[i]);
-            studentas.erase(studentas.begin() + i);
-            i--;
-        }
+        vargseliai.push_back(*it);
+        studentas.pop_back();
+        it = studentas.end();
+        it--;
     }
+
+    //sort(studentas.begin(), studentas.end(), rusiavimas2);
+    //int i = 0;
+    //for (int i = studentas.size() - 1; i >= 0; i--)
+    //{
+    //    if (studentas[i].gal < 5.0)
+    //    {
+    //        vargseliai.push_back(studentas[i]);
+    //        //studentas.erase(studentas.begin() + i);
+    //        studentas.pop_back();
+    //    }
+    //}
     endTime = high_resolution_clock::now();
     diff = endTime - startTime; // Skirtumas (s)
     cout << b << " dalijimo i dvi grupes laikas: " << diff.count() << endl;
-
     studentas.shrink_to_fit();
     vargseliai.shrink_to_fit();
 }
@@ -217,15 +241,17 @@ void fruspagalpaz_list_du(string& ivedimas, string& kietekai, string& nuskriaust
     in.close();
     list <stud> vargseliai;
 
-    studentas.sort(rusiavimas);
+    studentas.sort(rusiavimas2);
 
     startTime = high_resolution_clock::now();
-    list<stud>::iterator it = studentas.begin();
+    list<stud>::iterator it = studentas.end();
+    it--;
     while (it->gal < 5.0)
     {
         vargseliai.push_back(*it);
-        studentas.pop_front();
-        it = studentas.begin();
+        studentas.pop_back();
+        it = studentas.end();
+        it--;
     }
     endTime = high_resolution_clock::now();
     diff = endTime - startTime; // Skirtumas (s)
