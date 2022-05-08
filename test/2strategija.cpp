@@ -1,5 +1,7 @@
 ﻿#include "Strukturos.h"
 
+class_studentas::class_studentas(){}
+class_studentas::~class_studentas(){}
 
 void fruspagalpaz_vector_du(string& ivedimas, string& kietekai, string& nuskriaustukai, int a, int b)
 {
@@ -93,11 +95,18 @@ void fruspagalpaz_vector_du(string& ivedimas, string& kietekai, string& nuskriau
 
     startTime = high_resolution_clock::now();
 
-    for (int i = 0; i < cl_vargseliai.size(); i++)
+    /*for (int i = 0; i < cl_vargseliai.size(); i++)
     {
         buffer << left << setw(20) << cl_vargseliai[i].getName();
         buffer << left << setw(20) << cl_vargseliai[i].getSurname();
         buffer << left << setw(20) << cl_vargseliai[i].getGal() << endl;
+    }*/
+
+    for (auto p: cl_vargseliai)
+    {
+        buffer << left << setw(20) << p.getName() << 
+                  left << setw(20) << p.getSurname() << 
+                  left << setw(20) << p.getGal() << endl;
     }
 
     out1 << buffer.str() << endl;
@@ -123,11 +132,11 @@ void fruspagalpaz_vector_du(string& ivedimas, string& kietekai, string& nuskriau
     a = a - 3;
 
     startTime = high_resolution_clock::now();
-    for (int i = 0; i < cl_studentas.size(); i++)
+    for (auto p: cl_studentas)
     {
-        buffer << left << setw(20) << cl_studentas[i].getName();
-        buffer << left << setw(20) << cl_studentas[i].getSurname();
-        buffer << left << setw(20) << cl_studentas[i].getGal() << endl;
+        buffer << left << setw(20) << p.getName() <<
+                  left << setw(20) << p.getSurname() <<
+                  left << setw(20) << p.getGal() << endl;
     }
     endTime = high_resolution_clock::now();
 

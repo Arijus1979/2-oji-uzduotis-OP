@@ -25,6 +25,8 @@ private:
     float gal_;
     // interfeisas
 public:
+    class_studentas();
+    ~class_studentas();
 //-----------setteriai-------------------
     void setName(string a) 
     {
@@ -60,15 +62,6 @@ public:
     {
         return gal_;
     }
-
-
-
-    //class_studentas() : egzaminas_(0) { }  // default konstruktorius
-    //class_studentas(istream& is);
-    //inline string vardas() const { return vardas_; }    // get'eriai, inline
-    //inline string pavarde() const { return pavarde_; }  // get'eriai, inline
-    //double galBalas(double (*) (vector<double>) = mediana) const;  // get'eriai
-    //istream& readStudent(istream&);  // set'eriai
 };
 
 //bool compare(const class_studentas&, const class_studentas&);
