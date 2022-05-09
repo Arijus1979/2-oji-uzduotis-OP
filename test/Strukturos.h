@@ -50,6 +50,15 @@ public:
         }
         return *this;
     }
+
+    friend bool operator<(const class_studentas& a, const class_studentas& b) //naujas operatorius
+    {
+        if (a.vardas_ != b.vardas_)
+            return a.vardas_ < b.vardas_;
+        else
+            return a.pavarde_ < b.pavarde_;
+    }
+
     void changeName(string newName) //naujas metodas kurio gali prireikti ateityje
     {
         this->vardas_ = newName;
