@@ -1,7 +1,5 @@
 ﻿#include "Strukturos.h"
 
-class_studentas::class_studentas(){}
-class_studentas::~class_studentas(){}
 
 void fruspagalpaz_vector_du(string& ivedimas, string& kietekai, string& nuskriaustukai, int a, int b)
 {

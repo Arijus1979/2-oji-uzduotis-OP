@@ -25,8 +25,35 @@ private:
     float gal_;
     // interfeisas
 public:
-    class_studentas();
-    ~class_studentas();
+    class_studentas() : vardas_(""), pavarde_(""), egzaminas_(0), nd_(0), gal_(0){ }; //default konstruktorius
+
+    ~class_studentas() { }; //destruktorius
+
+    class_studentas(const class_studentas& that) //copy konstruktorius
+    {
+        this->vardas_ = that.vardas_;
+        this->pavarde_ = that.pavarde_;
+        this->egzaminas_ = that.egzaminas_;
+        this->nd_ = that.nd_;
+        this->gal_ = that.gal_;
+    }
+
+    class_studentas& operator=(const class_studentas& that) //copy assignment operator
+    {
+        if (this != &that)
+        {
+            this->vardas_ = that.vardas_;
+            this->pavarde_ = that.pavarde_;
+            this->egzaminas_ = that.egzaminas_;
+            this->nd_ = that.nd_;
+            this->gal_ = that.gal_;
+        }
+        return *this;
+    }
+    void changeName(string newName) //naujas metodas kurio gali prireikti ateityje
+    {
+        this->vardas_ = newName;
+    }
 //-----------setteriai-------------------
     void setName(string a) 
     {
