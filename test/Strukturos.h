@@ -14,18 +14,42 @@ struct stud {              //struktura studento duomenims saugoti
     float med;
 };
 
-// Reikia includinti visas priklausomybes: <iostream>, <string>, <vector>, "mediana.h"
-class class_studentas {
-    // realizacija
-private:
+class person {
+protected:
     string vardas_;
     string pavarde_;
+
+public:
+    person() : vardas_(""), pavarde_("") { }; //default konstruktorius
+    person(string v, string p)
+    {
+        vardas_ = v;
+        pavarde_ = p;
+    }
+
+    //setteriai
+    void setName(string a) { vardas_ = a; }
+    void setSurname(string a) { pavarde_ = a; }
+    
+
+    //getteriai
+    inline string getName() { return vardas_; }
+    inline string getSurname() { return pavarde_; }
+
+
+};
+
+
+// Reikia includinti visas priklausomybes: <iostream>, <string>, <vector>, "mediana.h"
+class class_studentas : public person {
+    // realizacija
+private:
     double egzaminas_;
     vector<double> nd_;
     float gal_;
     // interfeisas
 public:
-    class_studentas() : vardas_(""), pavarde_(""), egzaminas_(0), nd_(0), gal_(0){ }; //default konstruktorius
+    class_studentas() : egzaminas_(0), nd_(0), gal_(0){ }; //default konstruktorius
 
     ~class_studentas() { }; //destruktorius
 
