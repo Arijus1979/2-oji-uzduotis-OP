@@ -1,5 +1,6 @@
 # Programa skirta mokinių galutiniam vidurkiui apskaičiuoti.
 
-### v1.2
+### v1.5
 
-Realizuokite visus reikiamus (realizuokitė "Rule of three") ir tinkamus (turinčius prasmę) ir tik šiuos operatorius Jūsų turimai Studentas klasei. Pažymiu, kad nebūtinai visi realizuoti operatoriai turi būti panaudoti Jūsų programose - atminkite, kad Jūs kuriate/kursite programas ne tik sau, todėl įvertinkite ko gali prireikti ateities vartotojams naudojantiems Jūsų Studentas klasę!
+- Vietoje Jūsų turimos vienos Studentas (ar kažkaip kitaip pavadintos) klasės sukurkite dvi: bazinę klasę, skirtą bendrai aprašyti žmogų ir tuomet iš jos išvestinę (derived) klasę - Studentas.
+- Padarykite, kad žmogui skirta bazinė klasė būtų abstrakčioji klasė, t.y. nebūtų galima sukurti žmogaus tipo objektų, o tik objektus gautus iš jos išvestinių klasių.
