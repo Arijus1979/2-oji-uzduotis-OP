@@ -1,5 +1,21 @@
+#ifndef YOUR_HEADER_H
+#define YOUR_HEADER_H
+
+
+#include <iostream>
+#include <vector>
+#include <list>
+#include <deque>
+#include <string>
+#include <algorithm>
+#include <numeric>
+#include <fstream>
+#include <sstream>
+#include <regex>
+#include <random>
+#include <iomanip>
 #include <chrono>
-#include <bits/stdc++.h>
+#include "gtest/gtest.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -28,8 +44,8 @@ public:
     }
 
     //setteriai
-    void setName(string a) { vardas_ = a; }
-    void setSurname(string a) { pavarde_ = a; }
+    virtual void setName(string a) = 0;
+    virtual void setSurname(string a) = 0;
     
 
     //getteriai
@@ -129,8 +145,8 @@ public:
 //bool comparePagalEgza(const class_studentas&, const class_studentas&);
 
 
-
-
+double mediana(vector<int> a);
+bool ArSkaicius(const string s);
 void ar_egzistuoja(const string& name);
 void skaicius(int& a);
 void skaiciavimai(vector<stud>& studentas, int j, int pazsum, int i);
@@ -154,3 +170,5 @@ void fruspagalpaz_list_du(string& ivedimas, string& kietekai, string& nuskriaust
 
 void generacija(vector<stud>& studentas, int& i);
 void greicioskaiciavimai();
+
+#endif

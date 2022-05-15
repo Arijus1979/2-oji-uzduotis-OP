@@ -7,7 +7,6 @@ int main()
     vector<stud> studentas;
     int i = 0;
     char A;
-
     cout << "Ar norite sukurti naujus duomenu failus? [Y/N] ";
     while (true)
     {

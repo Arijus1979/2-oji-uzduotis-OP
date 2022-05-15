@@ -2,7 +2,7 @@
 ifstream in("kursiokai.txt");
 bool skaitymasisfailo = false;
 
-void ar_egzistuoja(const string& name)
+void ar_egzistuoja(const string& name) //tikrinama ar egzistuoja failas
 {
     ifstream jin(name);
     if (!jin)
@@ -25,7 +25,30 @@ void skaicius(int& a) //funkcija neleidzianti ivesti raides ten kur reikia skaic
     }
 }
 
-void skaiciavimai(vector<stud>& studentas, int j, int pazsum, int i) //skaiciavimo funkcijos
+bool ArSkaicius(const string s)
+{
+    regex reg("[0-9]");
+    if (regex_match(s, reg) || s == "10")
+        return true;
+    else
+        return false;
+}
+
+double mediana(vector<int> a) {
+    if (a.size() == 0)
+        return 0;
+
+    sort(a.begin(), a.end());
+
+    if (a.size() % 2 == 0) {
+        return (a[a.size() / 2] + a[(a.size() / 2) - 1]) / 2.0;
+    }
+    else {
+        return a[a.size() / 2];
+    }
+}
+
+void skaiciavimai(vector<stud>& studentas, int j, int pazsum, int i) //skaiciavimo funkcijos (galutinis balas pagal mediana arba galutini pazymi)
 {
     float mediana;
     sort(studentas[i].nd.begin(), studentas[i].nd.end());
@@ -46,7 +69,7 @@ void skaiciavimai(vector<stud>& studentas, int j, int pazsum, int i) //skaiciavi
     studentas[i].med = (0.4 * (pazsum / (float)j)) + (0.6 * studentas[i].med);
 }
 
-void ivedimas(vector<stud>& studentas, int& i)
+void ivedimas(vector<stud>& studentas, int& i) //rankinis duomenu ivedimas
 {
     studentas.push_back(stud());
     string v, p;
@@ -157,27 +180,27 @@ void ivedimas(vector<stud>& studentas, int& i)
     }
 }
 
-bool rusiavimasvard(stud& a, stud& b)
+bool rusiavimasvard(stud& a, stud& b) //rusiavimas pagal varda
 {
     return a.vardas < b.vardas;
 }
 
-bool rusiavimas(stud& a, stud& b)
+bool rusiavimas(stud& a, stud& b) //rusiavimas pagal pavarde
 {
     return a.gal < b.gal;
 }
 
-bool rusiavimas3(class_studentas& a, class_studentas& b)
+bool rusiavimas3(class_studentas& a, class_studentas& b) //rusiavimas pagal galutini pazymi class
 {
     return a.getGal() > b.getGal();
 }
 
-bool rusiavimas2(stud& a, stud& b)
+bool rusiavimas2(stud& a, stud& b) //rusiavimas pagal galutini pazymi
 {
     return a.gal > b.gal;
 }
 
-bool rusiavimaspavard(stud& a, stud& b)
+bool rusiavimaspavard(stud& a, stud& b) //rusiavimas pagal pavarde
 {
     return a.pavarde < b.pavarde;
 }
@@ -220,10 +243,11 @@ void isvedimas(int i, vector<stud> studentas)  //duomenu isvedimo funkcija
     }
 
     cout << my_buffer.str();
+    system("pause");
     my_buffer.clear();
 }
 
-int ndkiekis()
+int ndkiekis() //funkcija skaiciuojanti namu darbu kieki faile
 {
     ifstream in("kursiokai.txt");
     string a;
@@ -241,7 +265,7 @@ int ndkiekis()
     return q - 3;
 }
 
-void nuskaitymas(vector<stud>& studentas, int& i)
+void nuskaitymas(vector<stud>& studentas, int& i)  //duomenu nuskaitymas is failo
 {
 
     int kieknd = ndkiekis();
@@ -272,7 +296,7 @@ void nuskaitymas(vector<stud>& studentas, int& i)
 
 }
 
-void failogeneracija(string& filename, int a, int b)
+void failogeneracija(string& filename, int a, int b) //failo generavimo funkcija
 {
     string vardas, pavarde;
     ofstream out1(filename);
@@ -310,7 +334,7 @@ void failogeneracija(string& filename, int a, int b)
     cout << b << " mokiniu ir ju pazymiu generavimo i faila laikas: " << diff.count() << endl;
 }
 
-void fruspagalpaz_vector(string& ivedimas, string& kietekai, string& nuskriaustukai, int a, int b)
+void fruspagalpaz_vector(string& ivedimas, string& kietekai, string& nuskriaustukai, int a, int b) // pirma strategija vector
 {
     int paz, egz, sum = 0;
     float gal;
@@ -427,7 +451,7 @@ void fruspagalpaz_vector(string& ivedimas, string& kietekai, string& nuskriaustu
 
 }
 
-void fruspagalpaz_deque(string& ivedimas, string& kietekai, string& nuskriaustukai, int a, int b)
+void fruspagalpaz_deque(string& ivedimas, string& kietekai, string& nuskriaustukai, int a, int b) //pirma strategija deque
 {
     int paz, egz, sum = 0;
     float gal;
@@ -489,7 +513,7 @@ void fruspagalpaz_deque(string& ivedimas, string& kietekai, string& nuskriaustuk
     vargseliai.clear();
 }
 
-void fruspagalpaz_list(string& ivedimas, string& kietekai, string& nuskriaustukai, int a, int b)
+void fruspagalpaz_list(string& ivedimas, string& kietekai, string& nuskriaustukai, int a, int b) //pirma strategija list
 {
     int paz, egz, sum = 0;
     float gal;
@@ -552,7 +576,7 @@ void fruspagalpaz_list(string& ivedimas, string& kietekai, string& nuskriaustuka
     vargseliai.clear();
 }
 
-void generacija(vector<stud>& studentas, int& i)
+void generacija(vector<stud>& studentas, int& i) // funkcija generuojanti skirtingo dydzio failus
 {
     int a;
     string out1 = "kursiokai1000.txt";
@@ -583,7 +607,7 @@ void generacija(vector<stud>& studentas, int& i)
     failogeneracija(out5, a, 10000000);
 }
 
-void greicioskaiciavimai()
+void greicioskaiciavimai() //funkcija apskaiciuojanti programos veikimo laikus
 {
     string out1 = "kursiokai1000.txt";
     string out2 = "kursiokai10000.txt";

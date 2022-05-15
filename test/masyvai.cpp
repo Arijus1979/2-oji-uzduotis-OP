@@ -100,7 +100,7 @@ void ivedimas(stud* studentas, int& i)
             {
                 a = rand() % 10 + 1;
                 studentas[i].nd[p] = a;
-                pazsum += a;d
+                pazsum += a;
                 j++;
             }
             j++;

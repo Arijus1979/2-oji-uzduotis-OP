@@ -24,6 +24,9 @@
     <ClCompile Include="2strategija.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="1strategija.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="kursiokdai.txt">
@@ -41,9 +44,6 @@
   <ItemGroup>
     <ClInclude Include="Strukturos.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="1strategija.cpp">
-      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

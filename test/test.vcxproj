@@ -79,6 +79,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\vcpkg\vcpkg\packages\gtest_x64-windows\include;D:\vcpkg\vcpkg\packages\gtest_x64-windows;$(IncludePath)</IncludePath>
+    <SourcePath>C:\Users\ariju\Desktop\Vilniaus Universitetas\1.2\antroji uzduotis\test;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -117,7 +119,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>D:\vcpkg\vcpkg\packages\gtest_x64-windows\include</AdditionalIncludeDirectories>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -150,6 +154,7 @@
     <ClCompile Include="main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="1strategija.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="kursiokai1000.txt">
@@ -163,7 +168,6 @@
     <Text Include="makefile.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="1strategija.cpp" />
     <ClInclude Include="Strukturos.h" />
   </ItemGroup>
   <ItemGroup>

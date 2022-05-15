@@ -1,7 +1,7 @@
 ﻿#include "Strukturos.h"
 
 
-void fruspagalpaz_vector_du(string& ivedimas, string& kietekai, string& nuskriaustukai, int a, int b)
+void fruspagalpaz_vector_du(string& ivedimas, string& kietekai, string& nuskriaustukai, int a, int b) // 2 strategija vector
 {
     int paz, egz, sum = 0;
     float gal;
@@ -149,7 +149,7 @@ void fruspagalpaz_vector_du(string& ivedimas, string& kietekai, string& nuskriau
     cout << b << " kieteku dalijimo i faila laikas: " << diff.count() << endl;
 }
 
-void fruspagalpaz_deque_du(string& ivedimas, string& kietekai, string& nuskriaustukai, int a, int b)
+void fruspagalpaz_deque_du(string& ivedimas, string& kietekai, string& nuskriaustukai, int a, int b) // antra strategija deque
 {
     int paz, egz, sum = 0;
     float gal;
@@ -223,7 +223,7 @@ void fruspagalpaz_deque_du(string& ivedimas, string& kietekai, string& nuskriaus
     vargseliai.shrink_to_fit();
 }
 
-void fruspagalpaz_list_du(string& ivedimas, string& kietekai, string& nuskriaustukai, int a, int b)
+void fruspagalpaz_list_du(string& ivedimas, string& kietekai, string& nuskriaustukai, int a, int b) //antra strategija list
 {
     int paz, egz, sum = 0;
     float gal;

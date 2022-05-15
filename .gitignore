@@ -97,6 +97,7 @@ StyleCopReport.xml
 *.txt
 *.vcxproj
 *.vcxproj.filters
+*.sln
 
 # Chutzpah Test files
 _Chutzpah*
@@ -117,6 +118,8 @@ ipch/
 *.vsp
 *.vspx
 *.sap
+*.o
+*.exe
 
 # Visual Studio Trace Files
 *.e2e
@@ -353,3 +356,4 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/latex
